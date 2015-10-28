@@ -1,5 +1,6 @@
 <%@page language="java" contentType="text/html" pageEncoding="utf-8"%>
 <%@page import= "java.sql.*"%>
+<%@page import= "java.util.*"%>
 
 
 <html>
@@ -24,16 +25,6 @@
 			String firstname = "";
 			String lastname = "";
 		%>
-		<table border = "1">
-		<tr>	
-				<td>user name</td>
-				<td>email</td>	
-				<td>first name</td>
-				<td>last name</td>
-				<td>age</td>
-				<td>create date</td>
-				<td>level</td>
-			</tr>
 		<%
 			try {
             Class.forName(DBDRIVER);
@@ -54,9 +45,11 @@
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
-            rs.close();
-            pstmt.close();
-            conn.close();
+			if (rs!=null) {
+				rs.close();
+				pstmt.close();
+				conn.close();
+			}
         }%>
 		<%if(hasUser) {%>
 			<jsp:forward page="login_success.jsp">
@@ -66,7 +59,5 @@
 		<%} else {%>
 			<jsp:forward page="login_failed.htm"/>
 		<%}%>
-		
-		</table>
 	</body>
 </html>
