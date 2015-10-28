@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title> Request Get param names Demo </title>		
+	</head>
+	
+	<body>	
+	<h1>Request Get Param Names</h1>
+		<form action="getParamNames.jsp" method = "post">
+			<input type="text" name="name"/>
+			<br/>
+			male <input type="radio" name="gender" value="male" checked/>
+			female <input type="radio" name="gender" value="female"/>
+			<br/>
+			chicken <input type="checkbox" name="**meat" value="chicken"/>
+			beef <input type="checkbox" name="**meat" value="beef"/>
+			pork <input type="checkbox" name="**meat" value="pork"/>
+			fish <input type="checkbox" name="**meat" value="fish"/>
+			<br/>
+			<input type="hidden" name="id" value="hidden"/>
+			<input type="submit" value="submit"/>
+			<input type="reset" value="reset"/>
+		</form>	
+	</body>
+</html>
